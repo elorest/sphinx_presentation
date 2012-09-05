@@ -7,6 +7,7 @@ class CreateZipcodes < ActiveRecord::Migration
       t.string :full_state
       t.float :latitude
       t.float :longitude
+      t.integer :timezone
       t.boolean :dst
       t.text :description
 

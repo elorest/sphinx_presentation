@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Zip:</b>
+  <%= @zipcode.zip %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @zipcode.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @zipcode.state %>
+</p>
+
+<p>
+  <b>Full state:</b>
+  <%= @zipcode.full_state %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @zipcode.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @zipcode.longitude %>
+</p>
+
+<p>
+  <b>Dst:</b>
+  <%= @zipcode.dst %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @zipcode.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_zipcode_path(@zipcode) %> |
+<%= link_to 'Back', zipcodes_path %>

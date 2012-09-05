@@ -1,0 +1,19 @@
+// Place all the styles related to the Zipcodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nav{
+	float:left;
+	width: 200px;
+	height: 100%;
+}
+
+.city_list{
+	float:left;
+	border-left: medium solid black;
+}
+
+div.container {
+	overflow: auto;
+	width: 100%;
+}

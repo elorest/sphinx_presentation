@@ -1,0 +1,46 @@
+<h1>Search Cities</h1>
+<div class='container'>
+    <div class='nav'>
+        test
+    </div>
+<div class='city_list'>
+<table>
+  <tr>
+    <th>Zip</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Full state</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Timezone</th>
+    <th>Dst</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @zipcodes.each do |zipcode| %>
+  <tr>
+    <td><%= zipcode.zip %></td>
+    <td><%= zipcode.city %></td>
+    <td><%= zipcode.state %></td>
+    <td><%= zipcode.full_state %></td>
+    <td><%= zipcode.latitude %></td>
+    <td><%= zipcode.longitude %></td>
+    <td><%= zipcode.timezone %></td>
+    <td><%= zipcode.dst %></td>
+    <td><%= zipcode.description %></td>
+    <td><%= link_to 'Show', zipcode %></td>
+    <td><%= link_to 'Edit', edit_zipcode_path(zipcode) %></td>
+    <td><%= link_to 'Destroy', zipcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= paginate @zipcodes %>
+<br />
+</div>
+</div>
+
+<%= link_to 'New Zipcode', new_zipcode_path %>

@@ -1,7 +1,13 @@
 <h1>Search Cities</h1>
 <div class='container'>
     <div class='nav'>
-        test
+        <%= form_tag params, method: :get do %>
+            <%= text_field_tag :keyword %>
+            <%= submit_tag "Search" %>
+        <% end %>
+        <hr/>
+        <br/>
+        
     </div>
 <div class='city_list'>
 <table>

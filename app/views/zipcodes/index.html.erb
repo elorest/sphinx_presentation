@@ -7,7 +7,14 @@
         <% end %>
         <hr/>
         <br/>
-        
+        <% if false %>
+        <% @facets.each do |title, facet| %>
+            <h3><%= title.to_s.titleize %></h3>
+            <% facet.each do |f, count| %>
+               &nbsp; <%= link_to(f, params.merge(title => f)) %> (<small><%= count %></small>)<br/>
+            <% end %>
+        <% end %>
+        <% end %>
     </div>
 <div class='city_list'>
 <table>

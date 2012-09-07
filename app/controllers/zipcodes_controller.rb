@@ -3,7 +3,17 @@ class ZipcodesController < ApplicationController
   # GET /zipcodes.json
   def index
     @zipcodes = Zipcode.page(params[:page]).per(30)
-
+    @facets = {
+      :author => {
+        "Sherlock Holmes" => 3,
+        "John Watson"     => 10
+      },
+      :category_id => {
+        12 => 4,
+        42 => 7,
+        47 => 2
+      }
+    }
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @zipcodes }

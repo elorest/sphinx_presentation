@@ -2,18 +2,20 @@
 <div class='container'>
     <div class='nav'>
         <%= form_tag params, method: :get do %>
-            <%= text_field_tag :keyword %>
             <%= submit_tag "Search" %>
+            <%= text_field_tag :keyword, params[:keyword] %>
+            <br/>
+            <%= label_tag :location %>
+            <%= text_field_tag :location, params[:location] %>
         <% end %>
         <hr/>
+        <%= link_to "Clear Search", zipcodes_path %>
         <br/>
-        <% if false %>
         <% @facets.each do |title, facet| %>
             <h3><%= title.to_s.titleize %></h3>
-            <% facet.each do |f, count| %>
+            <% facet.sort.each do |f, count| %>
                &nbsp; <%= link_to(f, params.merge(title => f)) %> (<small><%= count %></small>)<br/>
             <% end %>
-        <% end %>
         <% end %>
     </div>
 <div class='city_list'>

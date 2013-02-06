@@ -2,18 +2,16 @@ class ZipcodesController < ApplicationController
   # GET /zipcodes
   # GET /zipcodes.json
   def index
-    @zipcodes = Zipcode.page(params[:page]).per(30)
-    @facets = {
-      :author => {
-        "Sherlock Holmes" => 3,
-        "John Watson"     => 10
-      },
-      :category_id => {
-        12 => 4,
-        42 => 7,
-        47 => 2
-      }
-    }
+    search = {:conditions => {}, :with => {}}
+    search[:conditions][:state] = params[:state] if params[:state]
+    if params[:location].present? && (coordinates = Geocoder.coordinates(params[:location]))
+      search[:geo] = coordinates.map{|c| c * Math::PI / 180}
+      search[:with]["@geodist"] = (0.0..(25 * 1609.34))
+      search[:order] = "@geodist ASC"
+    end
+    @zipcodes = Zipcode.search(params[:keyword], search).page(params[:page]).per(30)
+    @facets = Zipcode.facets(params[:keyword], search)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @zipcodes }

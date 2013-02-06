@@ -9,7 +9,7 @@ gem 'mysql2'
 # gem 'sqlite3'
 gem 'thinking-sphinx', '2.0.10'
 gem 'kaminari'
-
+gem "geocoder"
 
 # Gems used only for assets and not required
 # in production environments by default.
